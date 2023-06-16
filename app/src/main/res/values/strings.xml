@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppListaCurso</string>
+    <string name="txtTitle">App Lista Curso Android</string>
+    <string name="edti_primeiro_nome">Primeiro Nome</string>
+    <string name="textEditName">Name</string>
+    <string name="tex_hint_Aplelido">apelido</string>
 </resources>
