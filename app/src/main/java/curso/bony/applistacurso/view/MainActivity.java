@@ -1,8 +1,10 @@
-package curso.bony.applistacurso;
+package curso.bony.applistacurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import curso.bony.applistacurso.R;
 
 public class MainActivity extends AppCompatActivity {
 
