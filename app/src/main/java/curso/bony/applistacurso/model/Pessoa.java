@@ -5,7 +5,7 @@ public class Pessoa {
     private String primeiroNome;
     private String sobreNome;
     private String cursoDesejado;
-    private int  contacto;
+    private String  contacto;
 
     public Pessoa(){
 
@@ -35,11 +35,11 @@ public class Pessoa {
         this.cursoDesejado = cursoDesejado;
     }
 
-    public int getContacto() {
+    public String getContacto() {
         return contacto;
     }
 
-    public void setContacto(int contacto) {
+    public void setContacto(String contacto) {
         this.contacto = contacto;
     }
 }
