@@ -2,6 +2,7 @@ package curso.bony.applistacurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,11 +10,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import curso.bony.applistacurso.R;
+import curso.bony.applistacurso.controller.PessoaController;
 import curso.bony.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences preferences;
+    public static final String nomePreferences= "pref lista vip";
+    SharedPreferences.Editor listaVip;
     Pessoa pessoa;
+    PessoaController controller;
     EditText editPrimriroNome;
     EditText editSobrenone;
     EditText editNomeDoCurso;
@@ -27,11 +33,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        preferences= getSharedPreferences(nomePreferences,0);
+        listaVip= preferences.edit();
+
+        controller= new PessoaController();
+
         pessoa= new Pessoa();
-        pessoa.setPrimeiroNome("Gerson");
-        pessoa.setSobreNome("Orlando");
-        pessoa.setCursoDesejado("Curso de Java");
-        pessoa.setContacto("843788966");
+        pessoa.setPrimeiroNome(preferences.getString("PrimeiroNome",""));
+        pessoa.setSobreNome(preferences.getString("sobreNome",""));
+        pessoa.setCursoDesejado(preferences.getString("CursoDesejado",""));
+        pessoa.setContacto(preferences.getString("contacto",""));
 
         editPrimriroNome= findViewById(R.id.editPrimeiroNome);
         editSobrenone= findViewById(R.id.editSobrenone);
@@ -55,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 editSobrenone.setText("");
                 editNomeDoCurso.setText("");
                 editContacto.setText("");
+                listaVip.clear();
+                listaVip.apply();
             }
         });
 
@@ -72,6 +85,16 @@ public class MainActivity extends AppCompatActivity {
                 editSobrenone.setText("");
                 editNomeDoCurso.setText("");
                 editContacto.setText("");
+
+                listaVip.putString("PrimeiroNome",pessoa.getPrimeiroNome());
+                listaVip.putString("sobreNome",pessoa.getSobreNome());
+                listaVip.putString("CursoDesejado",pessoa.getCursoDesejado());
+                listaVip.putString("contacto",pessoa.getContacto());
+                listaVip.apply();
+
+
+
+                controller.salvar(pessoa);
             }
         });
 

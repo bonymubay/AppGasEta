@@ -5,9 +5,9 @@ public class Pessoa {
     private String primeiroNome;
     private String sobreNome;
     private String cursoDesejado;
-    private String  contacto;
+    private String contacto;
 
-    public Pessoa(){
+    public Pessoa() {
 
     }
 
