@@ -32,18 +32,18 @@ public class MainActivity extends AppCompatActivity {
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
-    Spinner  spinner;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spinner);
 
 
         controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
 
-        cursoController= new CursoController();
+        cursoController = new CursoController();
         nomesDosCursos = cursoController.dadosParaSpinner();
 
         controller.buscar(pessoa);
@@ -53,20 +53,17 @@ public class MainActivity extends AppCompatActivity {
         editSobrenone = findViewById(R.id.editSobrenone);
         editNomeDoCurso = findViewById(R.id.editNomeDoCurso);
         editContacto = findViewById(R.id.editContacto);
-        spinner=findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
 
         //Adapter
         //Layout
         //Injectar adapter ao spinner -> A lista sera gerada
 
-        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 cursoController.dadosParaSpinner());
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
         spinner.setAdapter(adapter);
-
-
-
 
 
         btnFinalizar = findViewById(R.id.btnFinalizar);
