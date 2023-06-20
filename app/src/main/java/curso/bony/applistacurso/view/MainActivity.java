@@ -9,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import curso.bony.applistacurso.R;
+import curso.bony.applistacurso.controller.CursoController;
 import curso.bony.applistacurso.controller.PessoaController;
+import curso.bony.applistacurso.model.Curso;
 import curso.bony.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
     PessoaController controller;
+    CursoController cursoController;
+
+    List<Curso> listaDeCuesos;
     EditText editPrimriroNome;
     EditText editSobrenone;
     EditText editNomeDoCurso;
@@ -34,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
+
+        cursoController= new CursoController();
+        listaDeCuesos= cursoController.getListaDECurso();
 
         controller.buscar(pessoa);
 
