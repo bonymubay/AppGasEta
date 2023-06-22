@@ -103,7 +103,6 @@
         android:id="@+id/btnLimpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="l"
         android:text="LIMPAR"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"

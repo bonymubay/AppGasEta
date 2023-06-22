@@ -1,9 +1,9 @@
-package curso.bony.applistacurso.controller;
+package curso.bony.appgaseta.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import curso.bony.applistacurso.model.Curso;
+import curso.bony.appgaseta.model.Curso;
 
 public class CursoController {
 

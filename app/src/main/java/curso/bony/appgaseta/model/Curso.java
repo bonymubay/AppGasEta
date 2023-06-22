@@ -1,4 +1,4 @@
-package curso.bony.applistacurso.model;
+package curso.bony.appgaseta.model;
 
 public class Curso {
 

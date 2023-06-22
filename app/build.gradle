@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'curso.bony.applistacurso'
+    namespace 'curso.bony.appgaseta'
     compileSdk 33
 
     defaultConfig {
-        applicationId "curso.bony.applistacurso"
+        applicationId "curso.bony.appgaseta"
         minSdk 24
         targetSdk 33
         versionCode 1

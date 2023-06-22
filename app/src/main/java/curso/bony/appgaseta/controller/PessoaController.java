@@ -1,9 +1,9 @@
-package curso.bony.applistacurso.controller;
+package curso.bony.appgaseta.controller;
 
 import android.content.SharedPreferences;
 
-import curso.bony.applistacurso.model.Pessoa;
-import curso.bony.applistacurso.view.MainActivity;
+import curso.bony.appgaseta.model.Pessoa;
+import curso.bony.appgaseta.view.MainActivity;
 
 public class PessoaController {
 

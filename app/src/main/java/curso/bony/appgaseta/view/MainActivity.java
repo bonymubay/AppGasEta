@@ -1,6 +1,4 @@
-package curso.bony.applistacurso.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package curso.bony.appgaseta.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +8,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
-import curso.bony.applistacurso.R;
-import curso.bony.applistacurso.controller.CursoController;
-import curso.bony.applistacurso.controller.PessoaController;
-import curso.bony.applistacurso.model.Pessoa;
+import curso.bony.appgaseta.R;
+import curso.bony.appgaseta.controller.CursoController;
+import curso.bony.appgaseta.controller.PessoaController;
+import curso.bony.appgaseta.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package curso.bony.applistacurso;
+package curso.bony.appgaseta;
 
 import org.junit.Test;
 

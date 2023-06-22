@@ -1,4 +1,4 @@
-package curso.bony.applistacurso;
+package curso.bony.appgaseta.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import curso.bony.applistacurso.view.MainActivity;
+import curso.bony.appgaseta.R;
 
 public class SplashActivity extends AppCompatActivity {
 
