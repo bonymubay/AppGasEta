@@ -19,7 +19,7 @@ import curso.bony.appgaseta.apoio.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
 
-    DecimalFormat df=new DecimalFormat("#.##");
+
     EditText editPreco;
     EditText editConsumo;
     EditText editDistancia;
@@ -28,6 +28,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
     Button btnCalcular;
     Button btnLimpar;
+    Button btnFinalizar;
     double preco;
     double consumo;
     double distancia;
@@ -47,6 +48,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
         btnCalcular= findViewById(R.id.bntCalcular);
         btnLimpar= findViewById(R.id.btnLimpar);
+        btnFinalizar=findViewById(R.id.btnFinalizar);
 
 
        String Preco=  editPreco.getText().toString();
@@ -65,16 +67,15 @@ public class GasEtaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(editPreco.getText().toString().isEmpty()||editConsumo.getText().toString().isEmpty()||editDistancia.getText().toString().isEmpty()){
-                    textResultado.setText("PRENCHER TODOS OS CAMPOS");
+                    textResultado.setText("PREENCHA TODOS OS CAMPOS");
                 }else {
 
                     distancia = Double.parseDouble(editDistancia.getText().toString());
                     consumo = Double.parseDouble(editConsumo.getText().toString());
                     preco = Double.parseDouble(editPreco.getText().toString());
 
-                   //double Resultado = Double.parseDouble(df.format(UtilGasEta.calcularGasto(distancia, consumo, preco)));
-                  textResultado.setText(Double.toString(Double.parseDouble(df.format(UtilGasEta.calcularGasto(distancia,consumo,preco)))));
 
+                    textResultado.setText("Custo da Viagem: "+UtilGasEta.calcularGasto(distancia,consumo,preco)+"MZN");
                      editDistancia.setText("");
                      editConsumo.setText("");
                       editPreco.setText("");
@@ -89,6 +90,13 @@ public class GasEtaActivity extends AppCompatActivity {
                 editDistancia.setText("");
                 editConsumo.setText("");
                 editPreco.setText("");
+            }
+        });
+
+        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
