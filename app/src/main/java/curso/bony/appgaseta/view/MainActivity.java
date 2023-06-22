@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         controller.buscar(pessoa);
 
 
-        editPrimriroNome = findViewById(R.id.editPrimeiroNome);
-        editSobrenone = findViewById(R.id.editSobrenone);
+        editPrimriroNome = findViewById(R.id.editPreco);
+        editSobrenone = findViewById(R.id.editConsumo);
         editNomeDoCurso = findViewById(R.id.editNomeDoCurso);
         editContacto = findViewById(R.id.editContacto);
         spinner = findViewById(R.id.spinner);
