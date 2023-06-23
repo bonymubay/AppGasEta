@@ -92,10 +92,10 @@ public class GasEtaActivity extends AppCompatActivity {
 
                      editPrecoEtanol.setText("");
                      editPrecoGasolina.setText("");
-                     //btnSalvar.setEnabled(true);
+                     btnSalvar.setEnabled(true);
 
                  }else {
-                     //btnSalvar.setEnabled(false);
+                     btnSalvar.setEnabled(false);
                  }
             }
         });
