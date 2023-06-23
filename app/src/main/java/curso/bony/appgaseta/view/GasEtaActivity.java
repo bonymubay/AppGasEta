@@ -12,26 +12,23 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.DecimalFormat;
-
 import curso.bony.appgaseta.R;
 import curso.bony.appgaseta.apoio.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
 
 
-    EditText editPreco;
-    EditText editConsumo;
-    EditText editDistancia;
+    EditText editPrecoGasolina;
+    EditText editPrecoEtanol;
+
 
     TextView textResultado;
 
     Button btnCalcular;
     Button btnLimpar;
     Button btnFinalizar;
-    double preco;
-    double consumo;
-    double distancia;
+    Button btnSalvar;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,20 +37,17 @@ public class GasEtaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gaseta);
 
-        editPreco= findViewById(R.id.editPreco);
-        editConsumo= findViewById(R.id.editConsumo);
-        editDistancia=findViewById(R.id.editDistancia);
+        editPrecoGasolina= findViewById(R.id.editPrecoGasolina);
+        editPrecoEtanol= findViewById(R.id.editPrecoEtanol);
+
 
         textResultado= findViewById(R.id.textResultado);
 
         btnCalcular= findViewById(R.id.bntCalcular);
         btnLimpar= findViewById(R.id.btnLimpar);
         btnFinalizar=findViewById(R.id.btnFinalizar);
+        btnSalvar=findViewById(R.id.btnSalvar);
 
-
-       String Preco=  editPreco.getText().toString();
-        String Distancia = editDistancia.getText().toString();
-       String Consumo= editConsumo.getText().toString() ;
 
 
 
@@ -66,20 +60,9 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(editPreco.getText().toString().isEmpty()||editConsumo.getText().toString().isEmpty()||editDistancia.getText().toString().isEmpty()){
-                    textResultado.setText("PREENCHA TODOS OS CAMPOS");
-                }else {
+                editPrecoEtanol.setText("");
+                editPrecoGasolina.setText("");
 
-                    distancia = Double.parseDouble(editDistancia.getText().toString());
-                    consumo = Double.parseDouble(editConsumo.getText().toString());
-                    preco = Double.parseDouble(editPreco.getText().toString());
-
-
-                    textResultado.setText("Custo da Viagem: "+UtilGasEta.calcularGasto(distancia,consumo,preco)+"MZN");
-                     editDistancia.setText("");
-                     editConsumo.setText("");
-                      editPreco.setText("");
-                }
             }
         });
 
@@ -87,16 +70,24 @@ public class GasEtaActivity extends AppCompatActivity {
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editDistancia.setText("");
-                editConsumo.setText("");
-                editPreco.setText("");
+
+                editPrecoEtanol.setText("");
+                editPrecoGasolina.setText("");
             }
         });
 
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
+            }
+        });
+
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
             }
         });
 

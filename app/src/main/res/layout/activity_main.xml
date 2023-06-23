@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editPreco"
+        android:id="@+id/editPrecoGasolina"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textTitulo" />
 
     <EditText
-        android:id="@+id/editConsumo"
+        android:id="@+id/editPrecoEtanol"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="48dp"
@@ -46,7 +46,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editPreco" />
+        app:layout_constraintTop_toTopOf="@+id/editPrecoGasolina" />
 
     <EditText
         android:id="@+id/editNomeDoCurso"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editConsumo" />
+        app:layout_constraintTop_toTopOf="@+id/editPrecoEtanol" />
 
     <EditText
         android:id="@+id/editContacto"
