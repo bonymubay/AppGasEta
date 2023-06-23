@@ -22,4 +22,9 @@ public class CombustivelController {
         dadosPreferencias.putString("recomendacao", object.getRecomendacao());
         dadosPreferencias.apply();
     }
+
+    public void limpar(){
+        dadosPreferencias.clear();
+        dadosPreferencias.apply();
+    }
 }

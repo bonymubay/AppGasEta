@@ -42,6 +42,7 @@ public class GasEtaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CombustivelController combustivelController= new CombustivelController(GasEtaActivity.this);
 
         setContentView(R.layout.activity_gaseta);
 
@@ -109,6 +110,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 editPrecoEtanol.setText("");
                 editPrecoGasolina.setText("");
+                combustivelController.limpar();
                 btnSalvar.setEnabled(false);
             }
         });
@@ -127,7 +129,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 combustivelGasolina=new Combustivel();
                 combustivelEtanol=new Combustivel();
-                CombustivelController combustivelController= new CombustivelController(GasEtaActivity.this);
+
 
                 combustivelGasolina.setNomeDoCombustivel("Gasolina");
                 combustivelGasolina.setPrecoDeCombustivel(precoGasolina);

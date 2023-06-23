@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import curso.bony.appgaseta.R;
+import curso.bony.appgaseta.database.GasEtadb;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,8 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                GasEtadb gasEtadb= new GasEtadb(SplashActivity.this);
                 Intent telaPrincipal= new Intent(SplashActivity.this, GasEtaActivity.class);
                 startActivity(telaPrincipal);
                 finish();
