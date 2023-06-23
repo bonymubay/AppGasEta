@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import curso.bony.appgaseta.R;
 import curso.bony.appgaseta.apoio.UtilGasEta;
+import curso.bony.appgaseta.controller.CombustivelController;
 import curso.bony.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class GasEtaActivity extends AppCompatActivity {
     Button btnSalvar;
     Combustivel combustivelGasolina;
     Combustivel combustivelEtanol;
+
     double precoGasolina;
     double precoEtanol;
     String recomendacao;
@@ -107,6 +109,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 editPrecoEtanol.setText("");
                 editPrecoGasolina.setText("");
+                btnSalvar.setEnabled(false);
             }
         });
 
@@ -124,6 +127,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 combustivelGasolina=new Combustivel();
                 combustivelEtanol=new Combustivel();
+                CombustivelController combustivelController= new CombustivelController(GasEtaActivity.this);
 
                 combustivelGasolina.setNomeDoCombustivel("Gasolina");
                 combustivelGasolina.setPrecoDeCombustivel(precoGasolina);
@@ -135,8 +139,10 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelGasolina.setRecomendacao(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
                 combustivelEtanol.setRecomendacao(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
 
+                combustivelController.salvar(combustivelGasolina);
+                combustivelController.salvar(combustivelEtanol);
             }
         });
-//TODO: fazer estudo
+
     }
 }
