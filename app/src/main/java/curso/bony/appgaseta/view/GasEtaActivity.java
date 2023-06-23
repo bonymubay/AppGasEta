@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import curso.bony.appgaseta.R;
 import curso.bony.appgaseta.apoio.UtilGasEta;
+import curso.bony.appgaseta.model.Combustivel;
 
 public class GasEtaActivity extends AppCompatActivity {
 
@@ -28,6 +29,11 @@ public class GasEtaActivity extends AppCompatActivity {
     Button btnLimpar;
     Button btnFinalizar;
     Button btnSalvar;
+    Combustivel combustivelGasolina;
+    Combustivel combustivelEtanol;
+    double precoGasolina;
+    double precoEtanol;
+    String recomendacao;
 
 
     @SuppressLint("MissingInflatedId")
@@ -47,6 +53,8 @@ public class GasEtaActivity extends AppCompatActivity {
         btnLimpar= findViewById(R.id.btnLimpar);
         btnFinalizar=findViewById(R.id.btnFinalizar);
         btnSalvar=findViewById(R.id.btnSalvar);
+
+
 
 
 
@@ -76,13 +84,18 @@ public class GasEtaActivity extends AppCompatActivity {
                 }
 
                  if(isOky){
-                     double precoGasolina= Double.parseDouble(editPrecoGasolina.getText().toString());
-                     double precoEtanol= Double.parseDouble(editPrecoEtanol.getText().toString());
+                     precoGasolina= Double.parseDouble(editPrecoGasolina.getText().toString());
+                     precoEtanol= Double.parseDouble(editPrecoEtanol.getText().toString());
 
-                     textResultado.setText(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
+                     recomendacao=UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol);
+                     textResultado.setText(recomendacao);
+
                      editPrecoEtanol.setText("");
                      editPrecoGasolina.setText("");
+                     //btnSalvar.setEnabled(true);
 
+                 }else {
+                     //btnSalvar.setEnabled(false);
                  }
             }
         });
@@ -109,8 +122,21 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                combustivelGasolina=new Combustivel();
+                combustivelEtanol=new Combustivel();
+
+                combustivelGasolina.setNomeDoCombustivel("Gasolina");
+                combustivelGasolina.setPrecoDeCombustivel(precoGasolina);
+
+
+                combustivelEtanol.setNomeDoCombustivel("Etanol");
+                combustivelEtanol.setPrecoDeCombustivel(precoEtanol);
+
+                combustivelGasolina.setRecomendacao(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
+                combustivelEtanol.setRecomendacao(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
+
             }
         });
-
+//TODO: fazer estudo
     }
 }
