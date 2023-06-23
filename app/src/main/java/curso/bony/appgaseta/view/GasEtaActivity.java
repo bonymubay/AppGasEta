@@ -60,9 +60,30 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                editPrecoEtanol.setText("");
-                editPrecoGasolina.setText("");
+                boolean isOky= true;
 
+                if(editPrecoGasolina.getText().toString().isEmpty()){
+
+                    editPrecoGasolina.setError("* OBRIGATORIO");
+                    editPrecoGasolina.requestFocus();
+                    isOky= false;
+                }
+                 if(editPrecoEtanol.getText().toString().isEmpty()){
+
+                    editPrecoEtanol.setError("* OBRIGATORIO");
+                    editPrecoEtanol.requestFocus();
+                     isOky= false;
+                }
+
+                 if(isOky){
+                     double precoGasolina= Double.parseDouble(editPrecoGasolina.getText().toString());
+                     double precoEtanol= Double.parseDouble(editPrecoEtanol.getText().toString());
+
+                     textResultado.setText(UtilGasEta.CalcularMelhorOpcao(precoGasolina,precoEtanol));
+                     editPrecoEtanol.setText("");
+                     editPrecoGasolina.setText("");
+
+                 }
             }
         });
 
@@ -87,7 +108,7 @@ public class GasEtaActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
 
